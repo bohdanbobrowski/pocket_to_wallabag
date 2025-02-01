@@ -46,7 +46,7 @@ def main():
     # 4 - get access token
     payload = {
         "consumer_key": ImporterSettings().pocket_consumer_key,
-        "code": ImporterSettings().pocket_request_token,
+        "code": POCKET_REQUEST_TOKEN,
     }
     r = requests.post(
         f"{ImporterSettings().pocket_url}/oauth/authorize",
