@@ -3,7 +3,7 @@ name = "pocket_to_wallabag"
 version = "1.0"
 description = "Pocket to wallabag exporter"
 authors = [
-    { name = "Grégoire MOLVEAU", email = "" },
+    { name = "Grégoire MOLVEAU"},
     { name = "Bohdan Bobrowski", email = "bohdanbobrowski@gmail.com" },
 ]
 license = { file = "LICENSE" }

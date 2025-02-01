@@ -2,15 +2,13 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class ImporterSettings(BaseSettings):
-    pocket_url = "https://getpocket.com/v3"
-    pocket_consumer_key = "CHANGE-ME"
-    redirect_uri = "about:blank"
-
-    wallabag_username = "CHANGEME"
-    wallabag_url = "https://CHANGE.ME"
-    wallabag_client_id = "CHANGE_ME"
-    wallabag_client_secret = "CHANGE_ME"
-    wallabag_username = "CHANGEME"
-    wallabag_password = "CHANGE_ME"
+    pocket_consumer_key: str = ""
+    pocket_url: str = ""
+    redirect_uri: str = ""
+    wallabag_client_id: str = ""
+    wallabag_client_secret: str = ""
+    wallabag_password: str = ""
+    wallabag_url: str = ""
+    wallabag_username: str = ""
 
     model_config = SettingsConfigDict(env_prefix="importer_")

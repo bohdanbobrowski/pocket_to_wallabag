@@ -12,7 +12,10 @@ def err_on_status_code(request, msg):
         print(f"{msg} : {r.status_code} - {r.text}")
         sys.exit(1)
 
+
 def main():
+    print(ImporterSettings().model_dump())
+    exit()
 
     # REQUESTS CONFIG
     headers = {"X-Accept": "application/json"}
@@ -97,7 +100,9 @@ def main():
             "url": url,
             "tags": "pocket",
         }
-        r = requests.post(f"{WALLABAG_URL}/api/entries.json", data=payload, headers=headers)
+        r = requests.post(
+            f"{WALLABAG_URL}/api/entries.json", data=payload, headers=headers
+        )
 
         if r.status_code != 200:
             print(
@@ -107,3 +112,7 @@ def main():
             print(f"[wallabag] success importing {index+1}/{len(urls)} : {url}")
 
     print("done :) gg! your pocket items were successfully migrated to wallabag")
+
+
+if __name__ == "__main__":
+    main()
