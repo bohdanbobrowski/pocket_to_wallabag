@@ -1,0 +1,26 @@
+[project]
+name = "pocket_to_wallabag"
+version = "1.0"
+description = "Pocket to wallabag exporter"
+authors = [
+    { name = "Grégoire MOLVEAU", email = "" },
+    { name = "Bohdan Bobrowski", email = "bohdanbobrowski@gmail.com" },
+]
+license = { file = "LICENSE" }
+keywords = [
+    "pocket",
+    "wallabag",
+]
+readme = "README.md"
+requires-python = ">=3.10, <3.13"
+dependencies = [
+    "pydantic",
+    "certifi",
+    "chardet",
+    "idna",
+    "requests",
+    "urllib3",
+]
+
+[project.scripts]
+pocket_to_wallabag = "pocket_to_wallabag.importer:main"
