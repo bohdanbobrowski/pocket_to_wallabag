@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 import requests
 import webbrowser
 import sys
@@ -63,7 +62,7 @@ def main():
     payload = {
         "consumer_key": ImporterSettings().pocket_consumer_key,
         "access_token": POCKET_ACCESS_TOKEN,
-        "state": "unread",
+        # "state": "unread",
         "sort": "oldest",
         "detailType": "simple",
     }
