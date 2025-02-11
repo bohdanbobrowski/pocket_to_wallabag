@@ -1,6 +1,6 @@
 [project]
 name = "pocket_to_wallabag"
-version = "1.0"
+version = "1.1"
 description = "Pocket to wallabag exporter"
 authors = [
     { name = "Grégoire MOLVEAU"},
