@@ -9,9 +9,6 @@ This script exports the all links with following values:
 - status whether the article is archived
 - favorite/starred
 - language
-- all  
-
-Good bye Pocket, hello Wallabag!
 
 ## Simplest usage
 
@@ -19,9 +16,32 @@ Good bye Pocket, hello Wallabag!
 
 Copy `_env_template` as `.env` and fill all values.
 
-### 2. Create environment
+### 2. Clone repository
 
-    git clone 
+    git clone git@github.com:bohdanbobrowski/pocket_to_wallabag.git
+    cd pocket_to_wallabag
+
+### 3. Create environment
+
     python -m venv venv
+
+...and the on Linux/macOS:
+
+    source venv/bin/activate
+    source .env
+
+...on Windows:
+
+    venv/Scripts/activate
+    set_env
+
+...and finally:
+
     pip install -e .
-    
+
+### 4. Run
+
+    pocket_to_wallabag
+
+### Good bye Pocket, hello Wallabag!
+   
