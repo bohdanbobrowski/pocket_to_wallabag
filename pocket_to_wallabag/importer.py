@@ -169,12 +169,19 @@ def main():
             if int(url["status"]) < 2:
                 cnt += 1
                 tags = list(url["tags"].keys())
-                csv_file.write(
-                    f'"{cnt}.","{pocket_id}","{url["given_url"]}","{url["resolved_url"]}","{url["given_title"]}",'
-                    + f'"{url["resolved_title"]}","{url["status"]}","{url["time_added"]}","{url["time_read"]}",'
-                    + f'"{url["favorite"]}","{url["lang"]}","{",".join(tags)}"'
-                    + "\n"
-                )
+                try:
+                    csv_file.write(
+                        f'"{cnt}.","{pocket_id}","{url["given_url"]}","{url["resolved_url"]}","{url["given_title"]}",'
+                    )
+                    csv_file.write(
+                        f'"{url["resolved_title"]}","{url["status"]}","{url["time_added"]}","{url["time_read"]}",'
+                    )
+                    csv_file.write(
+                        f'"{url["favorite"]}","{url["lang"]}","{",".join(tags)}"'
+                    )
+                except UnicodeEncodeError:
+                    pass
+                csv_file.write("\n")
         wallabag_access_token = get_wallabag_access_token(importer_settings)
         send_to_wallabag(importer_settings, wallabag_access_token, urls_from_pocket)
         offset += COUNT
