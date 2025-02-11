@@ -1,37 +1,27 @@
 # Pocket to wallabag exporter
 
-Use this script to export your [pocket](https://getpocket.com) items to [wallabag](https://www.wallabag.it).
+The original version was written by [gmolveau](https://github.com/gmolveau/pocket_to_wallabag). I cleaned up the code a bit and modified it to meet my requirements, which were to transfer the largest amount of data from Pocket to my Wallabag instance.
 
-## Getting started
+This script exports the all links with following values:
+- url
+- title
+- tags (+ adds "pocket")
+- status whether the article is archived
+- favorite/starred
+- language
+- all  
 
-### API Keys
+Good bye Pocket, hello Wallabag!
 
-You first need to create an application on pocket : [https://getpocket.com/developer/apps/](https://getpocket.com/developer/apps/).
+## Simplest usage
 
-Pocket will give you a `Consumer Key`.
+### 1. Configuration 
 
-Next in wallabag, `create a new client` in `API clients management`. This will give you a `Client ID` and a `Client secret`.
+Copy `_env_template` as `.env` and fill all values.
 
-Edit all those informations in `env.py`.
+### 2. Create environment
 
-### Requirements
-
-The only dependency is `requests` so you can either install it globally with `pip3 install --user requests` or use a `virtualenv`.
-
-To create the virtualenv : `python3 -m venv venv`.
-
-Activate it : `source venv/bin/activate`
-
-And install the necessary libraries : `pip3 install -r requirements.txt`
-
-### Execution
-
-Then, execute the script : `python3 pocket_to_wallabag.py`
-
-Done :)
-
----
-
-PS: to import 382 items here's the time result : `5.97s user 0.26s system 1% cpu 10:20.49 total` so 10 minutes.
-
-PSS : you can change the line `"state": "unread",` to `"state": "all",` in `pocket_to_wallabag.py` if you want to export ALL your pocket items (archived ones included).
+    git clone 
+    python -m venv venv
+    pip install -e .
+    
