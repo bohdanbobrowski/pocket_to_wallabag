@@ -122,7 +122,7 @@ def send_to_wallabag(settings: ImporterSettings, wallabag_access_token, urls):
     }
     for pocket_id, url in urls.items():
         if int(url["status"]) < 2:
-            tags = list(url["tags"].keys())
+            tags = list(url.get("tags", {}).keys())
             tags.append("pocket")
             archive = 0
             if int(url["status"]) > 0 or int(url["time_read"]) > 0:
@@ -168,8 +168,8 @@ def main():
         for pocket_id, url in urls_from_pocket.items():
             if int(url["status"]) < 2:
                 cnt += 1
-                tags = list(url["tags"].keys())
                 try:
+                    tags = list(url.get("tags", {}).keys())
                     csv_file.write(
                         f'"{cnt}.","{pocket_id}","{url["given_url"]}","{url["resolved_url"]}","{url["given_title"]}",'
                     )
@@ -179,7 +179,7 @@ def main():
                     csv_file.write(
                         f'"{url["favorite"]}","{url["lang"]}","{",".join(tags)}"'
                     )
-                except UnicodeEncodeError:
+                except (UnicodeEncodeError, KeyError):
                     pass
                 csv_file.write("\n")
         wallabag_access_token = get_wallabag_access_token(importer_settings)
